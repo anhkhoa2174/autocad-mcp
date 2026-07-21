@@ -211,6 +211,10 @@ CirCO chuẩn CHÍNH THỨC (per `reference/circo-standard.md` §3.6):
 **Lower bound:**
 - KHÔNG dưới 1.5m cho hành lang chính
 - KHÔNG dưới 1.2m cho hành lang nội bộ
+- **NGOẠI LỆ — nhánh tới cửa THOÁT HIỂM (emergency exit): ~1.0m là đủ** (user 2026-07).
+  Chỉ cần 1 nhánh hẹp chạm cửa để thoát; **KHÔNG chừa mảng trống lớn trước exit** —
+  phần dư phải gán vào zone kế bên thành diện tích dùng được.
+  (Cửa **main entrance** vẫn giữ 1.5-1.8m như trên, không áp ngoại lệ này.)
 - KHÔNG widen vượt cần thiết (lãng phí zone area)
 
 ### R-C3-pre. CORRIDOR TOPOLOGY — Ring là 1 option, không phải PATTERN duy nhất

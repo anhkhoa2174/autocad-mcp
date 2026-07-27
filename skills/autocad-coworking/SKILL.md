@@ -211,10 +211,9 @@ CirCO chuẩn CHÍNH THỨC (per `reference/circo-standard.md` §3.6):
 **Lower bound:**
 - KHÔNG dưới 1.5m cho hành lang chính
 - KHÔNG dưới 1.2m cho hành lang nội bộ
-- **NGOẠI LỆ — nhánh tới cửa THOÁT HIỂM (emergency exit): ~1.0m là đủ** (user 2026-07).
-  Chỉ cần 1 nhánh hẹp chạm cửa để thoát; **KHÔNG chừa mảng trống lớn trước exit** —
-  phần dư phải gán vào zone kế bên thành diện tích dùng được.
-  (Cửa **main entrance** vẫn giữ 1.5-1.8m như trên, không áp ngoại lệ này.)
+- **Hành lang dẫn tới cửa THOÁT HIỂM: ~1.2m (bằng hành lang thường)** (KTS Vinh 2026-07).
+  **KHÔNG chừa mảng trống lớn trước exit** — phần dư gán vào zone kế bên thành diện tích dùng được.
+  (Cửa **main entrance** vẫn giữ 1.5-1.8m; chi tiết egress xem **R-EGRESS-MIN**.)
 - KHÔNG widen vượt cần thiết (lãng phí zone area)
 
 ### R-C3-pre. CORRIDOR TOPOLOGY — Ring là 1 option, không phải PATTERN duy nhất
@@ -1280,13 +1279,13 @@ Doc cac file nay khi can chi tiet, khong load san vao moi turn.
 
 **User feedback:** "chỉ để chừa vừa đủ trước cái cửa vàng ... còn để nhiều space quá"
 
-**Rule:** Egress circulation chỉ chừa clearance **TỐI THIỂU** (~1.4-1.6m) trước cửa thoát hiểm (yellow door = cuadi layer color 2), KHÔNG để cả vùng lớn làm egress.
+**Rule:** Hành lang tới cửa thoát hiểm rộng **~1.2m (bằng hành lang thường)** (KTS Vinh 2026-07 — supersede số 1.4-1.6m cũ; = ngoại lệ ghi trong R-C2). Yellow door = `cuadi` layer color 2. KHÔNG để cả vùng lớn làm egress; phần dư gán vào zone.
 
 **Detection cửa thoát hiểm:** INSERT trên layer "cuadi" (color 2 = vàng), gần cầu thang/stair lobby.
 
 **Workflow:**
 1. Find yellow egress door (cuadi, color 2) bbox
-2. Egress strip = door width + ~0.7m clearance mỗi bên, từ door đến main corridor
+2. Egress strip ~1.2m (bằng hành lang thường), từ door đến main corridor
 3. Phần CÒN LẠI của stair lobby → room (Focus/Meeting/Booth)
 
 **Right pattern (CIRCO NKKN):**

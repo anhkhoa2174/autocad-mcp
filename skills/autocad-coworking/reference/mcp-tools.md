@@ -152,7 +152,7 @@ truoc do (entlast).
 ```
 # Ve ban mau roi array thanh day hot desk
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=1000, y1=1000, x2=2400, y2=1700, layer="FURN")
+                    x1=1000, y1=1000, x2=2400, y2=1700, layer="F-DESK")
 # → {handle: "<H1>", entity_type: "LWPOLYLINE"}
 autocad-mcp__entity(operation="array",
                     entity_id="<H1>",
@@ -160,7 +160,7 @@ autocad-mcp__entity(operation="array",
 
 # Vach booth: outline ngoai + offset 50mm vao trong
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=10000, y1=5000, x2=11100, y2=6100, layer="WALL")
+                    x1=10000, y1=5000, x2=11100, y2=6100, layer="A-WALL")
 autocad-mcp__entity(operation="offset", entity_id="last", data={"distance": -50})
 ```
 
@@ -200,13 +200,13 @@ autocad-mcp__layer(operation="list")
 # → {layers: [{name: "0", color: 7}, ...]}; biet layer nao da co
 
 # Tao bo chuan
-autocad-mcp__layer(operation="create", data={"name": "ZONE-HOTDESK", "color": "yellow"})
-autocad-mcp__layer(operation="create", data={"name": "DIM", "color": 8})
+autocad-mcp__layer(operation="create", data={"name": "CW-ZONE-BOUNDARY", "color": 1})
+autocad-mcp__layer(operation="create", data={"name": "CW-DIMENSION", "color": 7})
 
 # Set current truoc khi ve
-autocad-mcp__layer(operation="set_current", data={"name": "ZONE-HOTDESK"})
+autocad-mcp__layer(operation="set_current", data={"name": "CW-ZONE-BOUNDARY"})
 autocad-mcp__entity(operation="create_polyline", points=[...], data={"closed": true})
-# (KHONG can pass layer="ZONE-HOTDESK" nua vi da set_current)
+# (KHONG can pass layer="CW-ZONE-BOUNDARY" nua vi da set_current)
 ```
 
 ---
@@ -275,11 +275,11 @@ Ghi chu va kich thuoc. Tat ca op truyen qua `data`.
 # Nhan ten zone
 autocad-mcp__annotation(operation="create_text", data={
   "x": 4000, "y": 2500, "text": "HOT DESK",
-  "height": 250, "layer": "TEXT"
+  "height": 250, "layer": "CW-ZONE-LABEL"
 })
 
 # Kich thuoc loi di — set_current truoc vi op khong nhan layer
-autocad-mcp__layer(operation="set_current", data={"name": "DIM"})
+autocad-mcp__layer(operation="set_current", data={"name": "CW-DIMENSION"})
 autocad-mcp__annotation(operation="create_dimension_linear", data={
   "x1": 5000, "y1": 1000, "x2": 5000, "y2": 14000,
   "dim_x": 4500, "dim_y": 7500

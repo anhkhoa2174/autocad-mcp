@@ -51,7 +51,7 @@ Xem memory `desk-cluster-benching-meeting-rightsize-placement`.
 ```
 # Tao 1 ban mau — x1/y1/x2/y2/layer la TOP-LEVEL
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=1000, y1=1000, x2=2400, y2=1700, layer="FURN")
+                    x1=1000, y1=1000, x2=2400, y2=1700, layer="F-DESK")
 # -> {"ok": true, "handle": "<H>", ...}; capture handle
 
 # Array thanh 2 hang x 5 cot — entity_id top-level, rest in data
@@ -61,7 +61,7 @@ autocad-mcp__entity(operation="array",
 
 # Them ghe (circle r=250) — cx/cy/radius nam trong data, layer top-level
 autocad-mcp__entity(operation="create_circle",
-                    layer="FURN",
+                    layer="F-DESK",
                     data={"cx": 1700, "cy": 700, "radius": 250})
 autocad-mcp__entity(operation="array",
                     entity_id="<chair_H>",
@@ -92,11 +92,11 @@ partition), dung de 1 khoi 60m² cho 12 nguoi.**
 ```
 # Ban meeting (tam (cx,cy)) — top-level params
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=cx-1200, y1=cy-750, x2=cx+1200, y2=cy+750, layer="FURN")
+                    x1=cx-1200, y1=cy-750, x2=cx+1200, y2=cy+750, layer="F-DESK")
 
 # Ghe quanh ban: lap qua entity.create_circle voi toa do tinh san trong skill
 # autocad-mcp__entity(operation="create_circle",
-#                     layer="FURN",
+#                     layer="F-DESK",
 #                     data={"cx": .., "cy": .., "radius": 250})
 ```
 
@@ -108,9 +108,9 @@ Tuong day 50-80 (cach am). Cua mo ra ngoai. Ghe + ban nho 600 x 400.
 ```
 # Vach booth (outline ngoai + outline trong, ngan cach 50mm = day tuong)
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=x, y1=y, x2=x+1100, y2=y+1100, layer="WALL")
+                    x1=x, y1=y, x2=x+1100, y2=y+1100, layer="A-WALL")
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=x+50, y1=y+50, x2=x+1050, y2=y+1050, layer="FURN")
+                    x1=x+50, y1=y+50, x2=x+1050, y2=y+1050, layer="F-DESK")
 ```
 
 ## Lounge

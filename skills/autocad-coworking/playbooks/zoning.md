@@ -67,7 +67,7 @@ operation enum + data schema day du.
 ```
 # 1. Outline san — x1/y1/x2/y2/layer la TOP-LEVEL params
 autocad-mcp__entity(operation="create_rectangle",
-                    x1=0, y1=0, x2=W, y2=H, layer="WALL")
+                    x1=0, y1=0, x2=W, y2=H, layer="A-WALL")
 
 # 2. Voi moi khu, tinh dien tich tuc thoi:
 #    area_zone = total_net_area * percent
@@ -77,17 +77,17 @@ autocad-mcp__entity(operation="create_rectangle",
 #    points & layer la top-level; `closed` nam trong data
 autocad-mcp__entity(operation="create_polyline",
                     points=[[x1,y1],[x2,y1],[x2,y2],[x1,y2]],
-                    layer="ZONE-HOTDESK",
+                    layer="CW-ZONE-BOUNDARY",
                     data={"closed": true})
 
 # 4. Voi cap chung vach: ve doan WALL / WALL-GLASS chung
 autocad-mcp__entity(operation="create_line",
-                    x1=wx1, y1=wy1, x2=wx2, y2=wy2, layer="WALL")
+                    x1=wx1, y1=wy1, x2=wx2, y2=wy2, layer="A-WALL")
 
 # 5. Nhan khu (text). Voi annotation: tat ca field nam trong `data`
 #    (`layer` nam trong data, KHONG top-level).
 autocad-mcp__annotation(operation="create_text", data={
-  "x": cx, "y": cy, "text": "HOT DESK", "height": 250, "layer": "TEXT"
+  "x": cx, "y": cy, "text": "HOT DESK", "height": 250, "layer": "CW-ZONE-LABEL"
 })
 ```
 

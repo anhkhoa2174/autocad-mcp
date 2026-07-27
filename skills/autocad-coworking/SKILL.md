@@ -14,6 +14,24 @@ KHONG chua MCP config; openclaw dung mcporter bridge tai `~/.mcporter/mcporter.j
 Don vi mac dinh **mm**. Heading & ghi chu trong workspace viet **tieng Viet
 khong dau**; ten op va tham so giu nguyen tieng Anh.
 
+## 🗺️ BAN DO FILE — doc gi khi nao (doc muc nay TRUOC)
+
+| Khi lam | Doc file |
+|---|---|
+| **Truoc MOI lan ve** | `SKILL.md` (file nay) + `playbooks/workflow.md` (quy trinh B0→B7) |
+| Phan khu (zoning) | `playbooks/zoning.md` |
+| Bo tri noi that | `playbooks/furnishing.md` |
+| Tra chuan CirCO | `reference/circo-standard.md` |
+| Tra kich thuoc / khoang cach | `reference/standards.md` |
+| Tinh vung kha dung / validate zone | `reference/geometry.md` + `scripts/layout.py` |
+| Tao / dat ten layer | `reference/layers.md` |
+| Cu phap goi tool MCP | `reference/mcp-tools.md` |
+| Ban ve thi cong (khi user yeu cau ro) | `reference/construction-ready.md` |
+
+**⚠️ Skill nay la GUIDE, KHONG phu het moi mat bang.** Khi user thay cho nao chua
+hop ly → **nghe user chinh**, dung may moc theo rule. Rule la diem khoi dau, khong
+phai luat cung.
+
 ---
 
 ## 🎯 5 CORE PRINCIPLES (READ + APPLY EVERY RESPONSE)
@@ -560,11 +578,15 @@ user `ok`/`vẽ` confirmation, NOT auto-progress.
 
 ## ⚠️ PRE-FLIGHT (BAT BUOC TRUOC MOI ACTION VE)
 
-**LUON LUON `read` toan bo file SKILL.md NAY truoc khi:**
+**LUON LUON `read` CA HAI file — `SKILL.md` (nay) + `playbooks/workflow.md`
+(quy trinh B0→B7) — truoc khi:**
 - Goi bat ky `autocad-mcp__entity` create / modify / erase op nao
 - Goi `autocad-mcp__layer create / set_current`
 - Goi `autocad-mcp__annotation create_*`
 - Goi `autocad-mcp__drawing save / save_as_dxf / purge / create`
+
+**🔴 KHONG duoc bo qua `playbooks/workflow.md`** — quy trinh ve day du nam o do,
+SKILL.md chi giu rule tom tat.
 
 **Ly do:** skill nay co > 50 rule cu the (param shape, batch limit, zone
 shape orthogonality, code compliance, finishing chuan kien truc...). Thieu
@@ -1226,17 +1248,20 @@ khong can heredoc workaround nhu CLI cu.
 | `error: "No entity with handle 'XXX'"`                | Handle sai / entity bi xoa            | `entity(operation="list")` lay handle moi.                                                                     |
 | Screenshot `ok: false` hoac file rong                 | PNGOUT timeout / dialog               | User press ESC, thu lai.                                                                                       |
 
-## File phu trong skill nay
+## File phu trong skill nay (day du 10 file — xem BAN DO FILE dau skill)
 
-- `reference/mcp-tools.md` — dac ta day du **7 MCP tools** (op + input + output + khi nao dung).
-- `reference/geometry.md` — pipeline survey + tinh usable region + validate zones.
+- `playbooks/workflow.md` — **quy trinh ve B0→B7 day du (BAT BUOC doc truoc khi ve)**.
 - `playbooks/zoning.md` — chi tiet phan khu coworking.
 - `playbooks/furnishing.md` — pattern dat noi that.
+- `reference/circo-standard.md` — **tieu chuan CirCO chinh thuc** (doc truoc khi propose).
 - `reference/standards.md` — bang kich thuoc & khoang cach.
-- `reference/layers.md` — chuan layer naming + color.
+- `reference/geometry.md` — pipeline survey + tinh usable region + validate zones.
+- `reference/layers.md` — chuan layer naming + color (bo `A-`/`CW-`/`F-`).
+- `reference/mcp-tools.md` — dac ta day du **7 MCP tools** (op + input + output + khi nao dung).
+- `reference/construction-ready.md` — rule ban ve thi cong (chi khi user yeu cau).
 - `scripts/layout.py` — helper hinh hoc (shapely) cho `compute_usable` + `validate_zones`.
 
-Doc cac file nay khi can chi tiet, khong load san vao moi turn.
+Doc cac file nay khi can chi tiet, khong load san vao moi turn (tru `workflow.md` = bat buoc).
 
 ### R-SURVEY. Map 4 bounding walls TRƯỚC khi vẽ room (không đoán theo bbox)
 
